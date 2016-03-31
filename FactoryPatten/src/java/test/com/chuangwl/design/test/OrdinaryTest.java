@@ -1,6 +1,10 @@
 package com.chuangwl.design.test;
 
+import org.junit.Test;
+
+import com.chuangwl.design.factory.MailSenderFactory;
 import com.chuangwl.design.factory.SenderFactory;
+import com.chuangwl.design.factory.SmsSenderFactory;
 
 /**
  * 
@@ -9,11 +13,19 @@ import com.chuangwl.design.factory.SenderFactory;
  */
 public class OrdinaryTest {
 	
-	public static void main(String[] args) {
-		
+	@Test
+	public void test1() {
 		SenderFactory factory=new SenderFactory();
 		factory.produceMail().send();
 		factory.produceSms().send();
 		
+	}
+	@Test
+	public void test2(){
+		MailSenderFactory factory=new MailSenderFactory();
+		factory.productSender().send();
+		
+		SmsSenderFactory factory2=new SmsSenderFactory();
+		factory2.productSender().send();
 	}
 }
